@@ -1,0 +1,4 @@
+created .env file to store api key 
+created .gitignore file and added .env file to it so that my api key is not publicly available
+
+Anyone running my code would need their own .env file and api key
