@@ -5,22 +5,28 @@ function Input({ getPokemonName }) {
   function handleInput(input) {
     setInput(input);
   }
+  function handleSubmit(event) {
+    event.preventDefault();
+    getPokemonName(input);
+  }
+  function handleEnter(event) {
+    if (event.key === "Enter") {
+      getPokemonName(input);
+    }
+  }
 
   return (
     <div>
-      <input
-        type="text"
-        onChange={(event) => {
-          handleInput(event.target.value);
-        }}
-      />
-      <button
-        onClick={() => {
-          getPokemonName(input);
-        }}
-      >
-        Search
-      </button>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          onChange={(event) => {
+            handleInput(event.target.value);
+          }}
+          onKeyDown={handleEnter}
+        />
+        <button type="submit">Search</button>
+      </form>
     </div>
   );
 }
