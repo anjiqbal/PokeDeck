@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
-import CardCollection from "../CardCollection";
+import CardCollection from "../../pages/CardCollection";
 import Input from "../Input";
 
 function App() {
@@ -8,12 +8,11 @@ function App() {
 
   function getPokemonName(input) {
     setPokemonName(input);
+    console.log(pokemonName);
   }
-
   return (
     <div className="App">
-      <Input getPokemonName={getPokemonName} />
-      <CardCollection pokemonName={pokemonName} />
+      <Input getPokemonName={getPokemonName} pokemonName={pokemonName} />
     </div>
   );
 }

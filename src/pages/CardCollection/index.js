@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
-import Card from "../Card/index";
+import { useLocation } from "react-router-dom";
+import Card from "../../components/Card/index";
 
-function CardCollection({ pokemonName }) {
+function CardCollection() {
+  const location = useLocation();
+  const pokemonName = location.state;
   const [pokemon, setPokemon] = useState([]);
-
+  console.log(pokemonName);
   useEffect(() => {
     async function fetchPokemon() {
       const res = await fetch(
@@ -17,6 +20,7 @@ function CardCollection({ pokemonName }) {
 
   return (
     <div className="card-collection">
+      <h1>Hello</h1>
       {Array.isArray(pokemon) &&
         pokemon.map((card) => (
           <Card src={card.images.small} alt={card.name} key={card.id} />

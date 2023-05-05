@@ -3,11 +3,18 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./components/App/index";
 import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import CardCollection from "./pages/CardCollection";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Routes>
+        <Route index path="/" element={<App />} />
+        <Route path="cardCollection" element={<CardCollection />} />
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

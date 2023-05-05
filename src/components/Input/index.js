@@ -1,6 +1,9 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-function Input({ getPokemonName }) {
+function Input({ getPokemonName, pokemonName }) {
+  const navigate = useNavigate();
+
   const [input, setInput] = useState("");
   function handleInput(input) {
     setInput(input);
@@ -8,6 +11,7 @@ function Input({ getPokemonName }) {
   function handleSubmit(event) {
     event.preventDefault();
     getPokemonName(input);
+    navigate("/cardCollection", { state: pokemonName });
   }
   function handleEnter(event) {
     if (event.key === "Enter") {
