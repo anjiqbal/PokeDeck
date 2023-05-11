@@ -6,7 +6,8 @@ function CardCollection() {
   const location = useLocation();
   const pokemonName = location.state;
   const [pokemon, setPokemon] = useState([]);
-  console.log(pokemonName);
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     async function fetchPokemon() {
       const res = await fetch(
@@ -14,17 +15,24 @@ function CardCollection() {
       );
       const data = await res.json();
       setPokemon(data.data);
+      setIsLoading(false); // set loading state to false once data is loaded
     }
     fetchPokemon();
-  }, [pokemon, pokemonName]);
+  }, [pokemonName]);
 
   return (
     <div className="card-collection">
-      <h1>Hello</h1>
-      {Array.isArray(pokemon) &&
-        pokemon.map((card) => (
-          <Card src={card.images.small} alt={card.name} key={card.id} />
-        ))}
+      {isLoading ? (
+        <h1>Loading...</h1> // render loading message while data is being fetched
+      ) : (
+        <>
+          <h1>Hello</h1>
+          {Array.isArray(pokemon) &&
+            pokemon.map((card) => (
+              <Card src={card.images.small} alt={card.name} key={card.id} />
+            ))}
+        </>
+      )}
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
-import CardCollection from "../../pages/CardCollection";
+import Header from "../Header";
+import Footer from "../Footer";
 import Input from "../Input";
 
 function App() {
@@ -12,7 +13,11 @@ function App() {
   }
   return (
     <div className="App">
-      <Input getPokemonName={getPokemonName} pokemonName={pokemonName} />
+      <Header />
+      <main>
+        <Input getPokemonName={getPokemonName} pokemonName={pokemonName} />
+      </main>
+      {/* <Footer /> */}
     </div>
   );
 }

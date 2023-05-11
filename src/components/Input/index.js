@@ -11,7 +11,8 @@ function Input({ getPokemonName, pokemonName }) {
   function handleSubmit(event) {
     event.preventDefault();
     getPokemonName(input);
-    navigate("/cardCollection", { state: pokemonName });
+    navigate("/cardCollection", { state: input });
+    //We set the state to input because setPokemonName has not yet updated the state to include the new input
   }
   function handleEnter(event) {
     if (event.key === "Enter") {
