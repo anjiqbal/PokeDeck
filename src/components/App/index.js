@@ -3,6 +3,7 @@ import "./App.css";
 import Header from "../Header";
 import Footer from "../Footer";
 import Input from "../Input";
+import FeatureCard from "../Feature-card";
 
 function App() {
   const [pokemonName, setPokemonName] = useState("");
@@ -16,6 +17,7 @@ function App() {
       <Header />
       <main>
         <Input getPokemonName={getPokemonName} pokemonName={pokemonName} />
+        <FeatureCard />
       </main>
       {/* <Footer /> */}
     </div>

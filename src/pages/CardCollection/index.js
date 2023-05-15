@@ -15,6 +15,7 @@ function CardCollection() {
         `https://api.pokemontcg.io/v2/cards?q=name:${pokemonName}`
       );
       const data = await res.json();
+      console.log(data)
       setPokemon(data.data);
       setIsLoading(false); // set loading state to false once data is loaded
     }
