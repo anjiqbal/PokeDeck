@@ -1,0 +1,13 @@
+.card-collection {
+  display: grid;
+  grid-template-rows: auto, 1fr;
+}
+
+/* Sets display up so cards display in a grid that adjusts automatically when re-sized */
+.card-collection__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 80px;
+  width: 80%;
+  margin: 0 auto;
+}

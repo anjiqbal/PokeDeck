@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./Input.css"
 
-function Input({ getPokemonName, pokemonName }) {
+function Input({ getPokemonName }) {
   const navigate = useNavigate();
 
   const [input, setInput] = useState("");
@@ -21,7 +22,7 @@ function Input({ getPokemonName, pokemonName }) {
   }
 
   return (
-    <div>
+    <div class="form-container">
       <form onSubmit={handleSubmit}>
         <input
           type="text"

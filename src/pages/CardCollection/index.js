@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Card from "../../components/Card/index";
+import "./CardCollection.css";
 
 function CardCollection() {
   const location = useLocation();
@@ -27,10 +28,12 @@ function CardCollection() {
       ) : (
         <>
           <h1>Hello</h1>
-          {Array.isArray(pokemon) &&
-            pokemon.map((card) => (
-              <Card src={card.images.small} alt={card.name} key={card.id} />
-            ))}
+          <div className="card-collection__cards">
+            {Array.isArray(pokemon) &&
+              pokemon.map((card) => (
+                <Card src={card.images.small} alt={card.name} key={card.id} />
+              ))}
+          </div>
         </>
       )}
     </div>
