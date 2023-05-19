@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import Card from "../Card";
+import Popup from "../Popup";
 
-function FeatureCard() {
+function FeatureCard({ togglePopup, isOpen }) {
   let [featureCard, setFeatureCard] = useState({});
 
   useEffect(() => {
@@ -18,17 +19,28 @@ function FeatureCard() {
   }, []);
   console.log(featureCard);
   return (
-    <>
+    <div>
       <div>
         {featureCard.images && featureCard.images.small && (
           <Card
             src={featureCard.images.small}
             alt={featureCard.name}
             key={featureCard.id}
+            togglePopup={togglePopup}
+            isOpen={isOpen}
           />
         )}
       </div>
-    </>
+      <div>
+        <input
+          type="button"
+          value="Click to Open Popup"
+          onClick={togglePopup}
+        />
+
+        {isOpen && <Popup handleClose={togglePopup} />}
+      </div>
+    </div>
   );
 }
 
