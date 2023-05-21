@@ -1,28 +1,49 @@
 import { useEffect, useState } from "react";
 import Card from "../Card";
 import Popup from "../Popup";
+import "./Feature-card.css";
 
 function FeatureCard({ togglePopup, isOpen }) {
-  let [featureCard, setFeatureCard] = useState({});
-  let [randomNumber, setRandomNumber] = useState(null)
+  const [featureCard, setFeatureCard] = useState({});
+  const [randomNumber, setRandomNumber] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
-  
- 
   useEffect(() => {
     async function fetchRandomCard() {
-      const response = await fetch(
-        `https://api.pokemontcg.io/v2/cards?q=nationalPokedexNumbers:${randomNumber}`
-      );
-      const data = await response.json();
-      let featureCardNumber = Math.floor(Math.random() * data.data.length);
-      setFeatureCard(data.data[featureCardNumber]);
+      try {
+        const response = await fetch(
+          `https://api.pokemontcg.io/v2/cards?q=nationalPokedexNumbers:${randomNumber}`
+        );
+        const data = await response.json();
+        const featureCardNumber = Math.floor(Math.random() * data.data.length);
+        setFeatureCard(data.data[featureCardNumber]);
+        setIsLoading(false); // Card loading is complete
+      } catch (error) {
+        console.log(error);
+      }
     }
-    fetchRandomCard();
-  },[] );
+
+    if (randomNumber !== null) {
+      setIsLoading(true); // Reset loading state
+      fetchRandomCard();
+    }
+  }, [randomNumber]);
+
+  useEffect(() => {
+    setRandomNumber(Math.floor(Math.random() * 151));
+  }, []);
+
+  const handleFetchRandomCard = () => {
+    setRandomNumber(Math.floor(Math.random() * 151));
+  };
+
   console.log(featureCard);
+
   return (
-    <div>
-      {Object.keys(featureCard).length > 0 && ( // Add a conditional check before rendering the card
+    <div className="feature-card-container">
+      {isLoading ? ( // Render a placeholder element while loading
+        <div className="card-placeholder"></div>
+      ) : (
         <div>
           {featureCard.images && featureCard.images.small && (
             <Card
@@ -34,6 +55,11 @@ function FeatureCard({ togglePopup, isOpen }) {
           )}
         </div>
       )}
+      <input
+        type="button"
+        value="Fetch random card"
+        onClick={handleFetchRandomCard}
+      />
 
       {isOpen && (
         <Popup

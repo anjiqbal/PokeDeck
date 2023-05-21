@@ -87,8 +87,8 @@ h2 {
   align-items: flex-start;
   border: 2px solid rgb(255, 0, 204);
   width: 85%;
-  height: 100%;
-  padding: 60px 60px;
+  height: 90%;
+  padding: 60px 60px 0 60px;
 }
 
 .popup__box-info-header {
@@ -128,8 +128,8 @@ input[type="button"]:hover {
   background-color: #393939;
 }
 
-.more-info{
-  height: 60%;
+.more-info {
+  height: 50%;
 }
 
 .popup__box-info-buttons {
