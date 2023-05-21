@@ -4,10 +4,12 @@ import Popup from "../Popup";
 
 function FeatureCard({ togglePopup, isOpen }) {
   let [featureCard, setFeatureCard] = useState({});
+  let [randomNumber, setRandomNumber] = useState(null)
 
+  
+ 
   useEffect(() => {
     async function fetchRandomCard() {
-      let randomNumber = Math.floor(Math.random() * 151);
       const response = await fetch(
         `https://api.pokemontcg.io/v2/cards?q=nationalPokedexNumbers:${randomNumber}`
       );
@@ -16,30 +18,40 @@ function FeatureCard({ togglePopup, isOpen }) {
       setFeatureCard(data.data[featureCardNumber]);
     }
     fetchRandomCard();
-  }, []);
+  },[] );
   console.log(featureCard);
   return (
     <div>
-      <div>
-        {featureCard.images && featureCard.images.small && (
-          <Card
-            src={featureCard.images.small}
-            alt={featureCard.name}
-            key={featureCard.id}
-            togglePopup={togglePopup}
-            isOpen={isOpen}
-          />
-        )}
-      </div>
-      <div>
-        <input
-          type="button"
-          value="Click to Open Popup"
-          onClick={togglePopup}
-        />
+      {Object.keys(featureCard).length > 0 && ( // Add a conditional check before rendering the card
+        <div>
+          {featureCard.images && featureCard.images.small && (
+            <Card
+              src={featureCard.images.small}
+              alt={featureCard.name}
+              key={featureCard.id}
+              togglePopup={togglePopup}
+            />
+          )}
+        </div>
+      )}
 
-        {isOpen && <Popup handleClose={togglePopup} />}
-      </div>
+      {isOpen && (
+        <Popup
+          handleClose={togglePopup}
+          src={featureCard.images.large}
+          alt={featureCard.name}
+          key={featureCard.id}
+          name={featureCard.name}
+          supertype={featureCard.supertype}
+          subtypes={featureCard.subtypes}
+          hp={featureCard.hp}
+          types={featureCard.types}
+          setName={featureCard.set.name}
+          number={randomNumber}
+          artist={featureCard.artist}
+          rarity={featureCard.rarity}
+        />
+      )}
     </div>
   );
 }
