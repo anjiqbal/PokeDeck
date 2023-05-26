@@ -1,14 +1,13 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Input.css"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
-
+import "./Input.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCoffee } from "@fortawesome/free-solid-svg-icons";
 
 function Input({ getPokemonName }) {
   const navigate = useNavigate();
-  const searchIcon = <FontAwesomeIcon icon={faCoffee} />
-  const placeHolder = `${searchIcon} Search for a card`
+  const searchIcon = <FontAwesomeIcon icon={faCoffee} />;
+  const placeHolder = `${searchIcon} Search for a card`;
   const [input, setInput] = useState("");
   function handleInput(input) {
     setInput(input);
@@ -30,7 +29,7 @@ function Input({ getPokemonName }) {
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder = "Search for a card"
+          placeholder="Search for a card"
           onChange={(event) => {
             handleInput(event.target.value);
           }}
