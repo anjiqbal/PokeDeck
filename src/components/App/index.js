@@ -7,17 +7,23 @@ import FeatureCard from "../Feature-card";
 
 function App() {
   const [pokemonName, setPokemonName] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
 
   function getPokemonName(input) {
     setPokemonName(input);
     console.log(pokemonName);
   }
+
+  function togglePopup() {
+    setIsOpen(!isOpen)
+  }
+
   return (
     <div className="App">
       <Header />
       <main>
         <Input getPokemonName={getPokemonName} pokemonName={pokemonName} />
-        <FeatureCard />
+        <FeatureCard togglePopup={togglePopup} isOpen={isOpen} />
       </main>
       {/* <Footer /> */}
     </div>

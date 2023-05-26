@@ -1,0 +1,143 @@
+/* Popup style */
+.popup {
+  position: fixed;
+  background: #00000050;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  border: 2px solid red;
+}
+
+.popup__box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 70%;
+  margin: 0 auto;
+  height: 70%;
+  max-height: 70vh;
+  margin-top: calc(100vh - 85vh - 20px);
+  background: #fff;
+  border-radius: 4px;
+  padding: 20px;
+  border: 1px solid #999;
+  overflow: auto;
+  border-radius: 10px;
+  border: 2px solid blue;
+}
+
+.close-icon::before {
+  content: "x";
+}
+
+.close-icon {
+  cursor: pointer;
+  position: fixed;
+  right: calc(15% - 30px);
+  top: calc(100vh - 85vh - 33px);
+  background: #ededed;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  line-height: 20px;
+  text-align: center;
+  border: 1px solid #999;
+  font-size: 20px;
+  border: 2px solid green;
+}
+
+.popup__box img {
+  width: 400px;
+  height: auto;
+  object-fit: contain;
+  box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.45);
+  border-radius: 20px;
+  border: 2px solid orange;
+}
+
+.popup__box-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border: 2px solid rgb(255, 0, 204);
+  width: 85%;
+  height: 100%;
+  padding-left: 60px;
+  /* gap: 10px; Add vertical spacing between paragraphs */
+}
+
+.popup__box-card {
+  border: 2px solid rgb(0, 255, 179);
+  height: auto;
+}
+
+h1,
+h2 {
+  display: block;
+  margin: 0;
+}
+
+.popup__box-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border: 2px solid rgb(255, 0, 204);
+  width: 85%;
+  height: 90%;
+  padding: 60px 60px 0 60px;
+}
+
+.popup__box-info-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 5px;
+  border-bottom: 1px solid black;
+}
+
+.popup__box-info-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.popup__box-info-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+input[type="button"] {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  font-size: 1.2rem;
+  background-color: #000000;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+input[type="button"]:hover {
+  background-color: #393939;
+}
+
+.more-info {
+  height: 50%;
+}
+
+.popup__box-info-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.popup__box-info-buttons input[type="button"] {
+  margin-right: 50px;
+}
