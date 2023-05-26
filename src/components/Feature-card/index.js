@@ -7,6 +7,7 @@ function FeatureCard({ togglePopup, isOpen }) {
   const [featureCard, setFeatureCard] = useState({});
   const [randomNumber, setRandomNumber] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+ 
 
   useEffect(() => {
     async function fetchRandomCard() {
@@ -33,9 +34,14 @@ function FeatureCard({ togglePopup, isOpen }) {
     setRandomNumber(Math.floor(Math.random() * 151));
   }, []);
 
-  const handleFetchRandomCard = () => {
+function handleFetchRandomCard () {
     setRandomNumber(Math.floor(Math.random() * 151));
   };
+  
+
+
+
+
 
   console.log(featureCard);
 

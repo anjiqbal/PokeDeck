@@ -16,6 +16,7 @@ function App() {
 
   function togglePopup() {
     setIsOpen(!isOpen)
+    console.log('i am here')
   }
 
   return (
