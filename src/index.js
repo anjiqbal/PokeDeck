@@ -5,6 +5,7 @@ import App from "./components/App/index";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CardCollection from "./pages/CardCollection";
+import CardDetails from "./pages/CardDetails/CardDetails";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -13,6 +14,7 @@ root.render(
       <Routes>
         <Route index path="/" element={<App />} />
         <Route path="cardCollection" element={<CardCollection />} />
+        <Route path="cardDetails" element={<CardDetails />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
