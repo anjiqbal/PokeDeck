@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import Card from "../Card";
 import Popup from "../Popup";
 import "./Feature-card.css";
+
 
 function FeatureCard({ togglePopup, isOpen }) {
   const [featureCard, setFeatureCard] = useState({});
@@ -50,14 +50,9 @@ function handleFetchRandomCard () {
       {isLoading ? ( // Render a placeholder element while loading
         <div className="card-placeholder"></div>
       ) : (
-        <div>
+        <div className="card">
           {featureCard.images && featureCard.images.small && (
-            <Card
-              src={featureCard.images.small}
-              alt={featureCard.name}
-              key={featureCard.id}
-              togglePopup={togglePopup}
-            />
+         <img src={featureCard.images.small} alt={featureCard.name} key={featureCard.id} onClick={togglePopup}/>
           )}
         </div>
       )}
