@@ -1,9 +1,9 @@
 import "./Card.css";
 
-function Card({ src, alt, key, togglePopup }) {
+function Card({ src, alt, key }) {
   return (
     <div className="card">
-      <img src={src} alt={alt} key={key} onClick={togglePopup} />
+      <img src={src} alt={alt} key={key} />
     </div>
   );
 }
