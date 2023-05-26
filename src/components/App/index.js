@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
 import Header from "../Header";
-import Footer from "../Footer";
 import Input from "../Input";
 import FeatureCard from "../Feature-card";
 
@@ -15,8 +14,8 @@ function App() {
   }
 
   function togglePopup() {
-    setIsOpen(!isOpen)
-    console.log('i am here')
+    setIsOpen(!isOpen);
+    console.log("i am here");
   }
 
   return (
