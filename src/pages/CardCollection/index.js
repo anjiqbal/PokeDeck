@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Card from "../../components/Card/index";
+import Header from "../../components/Header";
 import "./CardCollection.css";
 
 function CardCollection() {
@@ -15,6 +16,7 @@ function CardCollection() {
         `https://api.pokemontcg.io/v2/cards?q=name:${pokemonName}`
       );
       const data = await res.json();
+
       setPokemon(data.data);
       setIsLoading(false); // set loading state to false once data is loaded
     }
@@ -23,6 +25,7 @@ function CardCollection() {
 
   return (
     <div className="card-collection">
+      <Header />
       {isLoading ? (
         <h1>Loading...</h1> // render loading message while data is being fetched
       ) : (
