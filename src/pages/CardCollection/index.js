@@ -16,6 +16,7 @@ function CardCollection() {
       );
       const data = await res.json();
       setPokemon(data.data);
+      console.log(pokemon)
       setIsLoading(false); // set loading state to false once data is loaded
     }
     fetchPokemon();
