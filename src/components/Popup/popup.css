@@ -28,24 +28,24 @@
   border: 2px solid blue;
 }
 
-.close-icon::before {
-  content: "x";
-}
 
 .close-icon {
   cursor: pointer;
   position: fixed;
-  right: calc(15% - 30px);
-  top: calc(100vh - 85vh - 33px);
+  right: calc(15% - 45px);
+  top: calc(100vh - 85vh - 55px);
   background: #ededed;
-  width: 25px;
-  height: 25px;
+  width: 40px;
+  height: 40px;
+  line-height: 0px;
   border-radius: 50%;
-  line-height: 20px;
   text-align: center;
   border: 1px solid #999;
   font-size: 20px;
   border: 2px solid green;
+  color: black;
+  font-weight: bold;
+  padding: 0;
 }
 
 .popup__box img {
@@ -73,6 +73,12 @@
   border: 2px solid rgb(0, 255, 179);
   height: auto;
 }
+
+h1 {
+  font-size: 34px;
+}
+
+
 
 h1,
 h2 {
@@ -138,6 +144,6 @@ input[type="button"]:hover {
   margin-top: 20px;
 }
 
-.popup__box-info-buttons input[type="button"] {
+.popup__box-info-buttons button {
   margin-right: 50px;
 }

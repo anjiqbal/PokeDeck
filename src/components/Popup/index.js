@@ -14,12 +14,16 @@ function Popup({
   setName,
   number,
   artist,
-  rarity
+  rarity,
 }) {
   return (
-    <div className="popup">
+    <section className="popup">
       <div className="popup__box">
-        <span className="close-icon" onClick={handleClose}></span>
+        <button
+          className="close-icon"
+          onClick={handleClose}
+          aria-label="Close"
+        >X</button>
 
         <div className="popup__box-card">
           <img src={src} alt={alt} key={key} onClick={togglePopup} />
@@ -47,12 +51,12 @@ function Popup({
             <h3>Artist: {artist}</h3>
           </div>
           <div className="popup__box-info-buttons">
-            <input type="button" value="Add to my deck" />
-            <input type="button" value="Add to wish list" />
+            <button type="button">Add to my deck</button>
+            <button type="button">Add to wish list</button>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

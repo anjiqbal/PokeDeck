@@ -19,14 +19,13 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <main className="App">
       <Header />
-      <main>
+      <section>
         <Input getPokemonName={getPokemonName} pokemonName={pokemonName} />
         <FeatureCard togglePopup={togglePopup} isOpen={isOpen} />
-      </main>
-      {/* <Footer /> */}
-    </div>
+      </section>
+    </main>
   );
 }
 

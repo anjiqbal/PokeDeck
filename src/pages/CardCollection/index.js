@@ -25,18 +25,20 @@ function CardCollection() {
 
   return (
     <div className="card-collection">
-      <Header />
+      <header>
+        <Header />
+      </header>
       {isLoading ? (
-        <h1>Loading...</h1> // render loading message while data is being fetched
+        <h2>Loading...</h2> // render loading message while data is being fetched
       ) : (
         <>
-          <h1>PokeDeck</h1>
-          <div className="card-collection__cards">
+          <h2>PokeDeck</h2>
+          <ul className="card-collection__cards">
             {Array.isArray(pokemon) &&
               pokemon.map((card) => (
                 <Card src={card.images.small} alt={card.name} key={card.id} />
               ))}
-          </div>
+          </ul>
         </>
       )}
     </div>

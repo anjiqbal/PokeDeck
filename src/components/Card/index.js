@@ -3,17 +3,21 @@ import { useNavigate } from "react-router-dom";
 
 function Card({ src, alt, key }) {
   const navigate = useNavigate();
-  function getCardDetails(event){
+  function getCardDetails(event) {
     event.preventDefault();
-   
+
     navigate("/cardDetails", { state: { src, alt, key } });
   }
   return (
-    <div className="card">
-
-      <img src={src} alt={alt} key={key} onClick={getCardDetails}/>
-
-    </div>
+    <li key={key}>
+      <img
+        src={src}
+        alt={alt}
+        key={key}
+        className="card"
+        onClick={getCardDetails}
+      />
+    </li>
   );
 }
 

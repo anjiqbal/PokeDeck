@@ -46,21 +46,20 @@ function handleFetchRandomCard () {
   console.log(featureCard);
 
   return (
-    <div className="feature-card-container">
+    <section className="feature-card-container">
       {isLoading ? ( // Render a placeholder element while loading
         <div className="card-placeholder"></div>
       ) : (
-        <div className="card">
+        <article className="card">
           {featureCard.images && featureCard.images.small && (
          <img src={featureCard.images.small} alt={featureCard.name} key={featureCard.id} onClick={togglePopup}/>
           )}
-        </div>
+        </article>
       )}
-      <input
-        type="button"
-        value="Fetch random card"
-        onClick={handleFetchRandomCard}
-      />
+  <button type="button" onClick={handleFetchRandomCard}>
+    Fetch random card
+  </button>
+
 
       {isOpen && (
         <Popup
@@ -79,7 +78,7 @@ function handleFetchRandomCard () {
           rarity={featureCard.rarity}
         />
       )}
-    </div>
+    </section>
   );
 }
 

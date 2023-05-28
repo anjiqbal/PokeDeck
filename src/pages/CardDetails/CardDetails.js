@@ -6,9 +6,11 @@ function CardDetails() {
   const { src, alt, key } = location.state;
   return (
     <div>
-      <Header />
-      <h1>heyyy gurll</h1>
-      <img src={src} alt={"a pokemon"} />
+      <header>
+        <Header />
+      </header>
+      <h2>heyyy gurll</h2>
+      <img src={src} alt={alt} key={key} />
     </div>
   );
 }
