@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Card from "../../components/Card/index";
 import "./CardCollection.css";
+import Header from "../../components/Header";
 
 function CardCollection() {
   const location = useLocation();
@@ -39,6 +40,72 @@ function CardCollection() {
   // }
 
   function handleSort(e) {
+// Switch cases to sort rarity by value
+switch(pokemon.rarity) {
+
+
+// How to assign value based on case - update current array (make shallow copy and update?) - possibly a for/ for each loop.
+
+
+  case "Common":
+  case "Uncommon":
+  case "Classic Collection":
+  case "Promo":
+    break;
+    
+  case "Rare Holo":
+  case "Rare Rainbow":
+  case "Rare Shiny":
+  case "Rare Ultra":
+  case "Rare":
+    break;
+
+  case "Rare Prism Star":
+  case "Rare ACE":
+  case "Rare Holo Star":
+  case "Rare Prime":
+  case "Rare BREAK":
+  case "Rare Shining":
+    break;
+
+
+  case "Rare Holo LV.X":
+  case "Rare Holo GX":
+  case "Rare Holo EX":
+  case "Rare Holo V":
+  case "Rare Shiny GX":
+    break;
+  
+
+  case "Hyper Rare" :
+  case "Ultra Rare" :
+  case "Double Rare" :
+  case "Rare Secret" :
+  case "Radiant Rare" :
+    break;
+
+  case "Special Illustration Rare":
+  case "Trainer Gallery Rare Holo":
+  case "Amazing Rare":
+  case "Rare Holo VSTAR":
+  case "Rare Holo VMAX":
+    break;
+
+  
+  case "LEGEND":
+    break;
+
+  default: console.log("No value")
+    break;
+
+
+
+
+}
+
+
+
+
     let newOrder = [];
     pokemon.map((pokemon)=>{console.log(pokemon.rarity)})
     if (e.target.value === "release-date-asc") {
@@ -64,7 +131,7 @@ function CardCollection() {
         <h1>Loading...</h1> // render loading message while data is being fetched
       ) : (
         <>
-          <h1>PokeDeck</h1>
+          <Header />
           {/* Select option to pick sort by */}
           <label>Sort by: <select name= "sort-by" id="sort-by" defaultValue="null" placeholder="null" onChange={e=>handleSort(e)}>
             <option value="rarity-asc">Rarity (asc)</option>
@@ -102,22 +169,22 @@ export default CardCollection;
 6. "Rare Holo VMAX"
 7. "Hyper Rare"
 8. "Ultra Rare"
-9. "Rare Holo LV.X"
-10. "Rare Holo GX"
-11. "Rare Holo EX"
-12. "Rare Prism Star"
-13. "Rare ACE"
 14. "Double Rare"
 15. "Rare Secret"
 16. "Radiant Rare"
+9. "Rare Holo LV.X"
+10. "Rare Holo GX"
+11. "Rare Holo EX"
 17. "Rare Holo V"
+24. "Rare Shiny GX"
+12. "Rare Prism Star"
+13. "Rare ACE"
 18. "Rare Holo Star"
 19. "Rare Prime"
 20. "Rare BREAK"
 21. "Rare Shining"
 22. "Rare Holo"
 23. "Rare Rainbow"
-24. "Rare Shiny GX"
 25. "Rare Shiny"
 26. "Rare Ultra"
 27. "Rare"
