@@ -36,7 +36,20 @@ function CardCollection() {
           <ul className="card-collection__cards">
             {Array.isArray(pokemon) &&
               pokemon.map((card) => (
-                <Card src={card.images.small} alt={card.name} key={card.id} />
+                <Card
+                  srcSmall={card.images.small}
+                  srcLarge={card.images.large}
+                  name={card.name}
+                  alt={card.name}
+                  key={card.id}
+                  supertype={card.supertype}
+                  subtypes={card.subtypes}
+                  hp={card.hp}
+                  types={card.types}
+                  setName={card.set.name}
+                  artist={card.artist}
+                  rarity={card.rarity}
+                />
               ))}
           </ul>
         </>

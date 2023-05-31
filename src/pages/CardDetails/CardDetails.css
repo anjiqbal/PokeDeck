@@ -1,0 +1,110 @@
+
+
+.details { 
+    margin-top: 60px;
+}
+
+.details__box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 80%;
+  margin: 0 auto;
+  height: auto;
+
+  padding: 20px;
+
+  border-radius: 10px;
+}
+
+.details__box img {
+  width: 400px;
+  height: auto;
+  object-fit: contain;
+  box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.45);
+  border-radius: 20px;
+}
+
+.details__box-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  width: 85%;
+  height: 100%;
+  padding-left: 60px;
+  /* gap: 10px; Add vertical spacing between paragraphs */
+}
+
+h1 {
+  font-size: 34px;
+}
+
+h1,
+h2 {
+  display: block;
+  margin: 0;
+}
+
+.details__box-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  width: 85%;
+  height: 90%;
+  padding: 60px 60px 0 60px;
+}
+
+.details__box-info-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 5px;
+  border-bottom: 1px solid black;
+}
+
+.details__box-info-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.details__box-info-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+input[type="button"] {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  font-size: 1.2rem;
+  background-color: #000000;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+input[type="button"]:hover {
+  background-color: #393939;
+}
+
+.details-more-info {
+  height: 50%;
+}
+
+.details__box-info-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.details__box-info-buttons button {
+  margin-right: 50px;
+}

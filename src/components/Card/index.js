@@ -1,17 +1,44 @@
 import "./Card.css";
 import { useNavigate } from "react-router-dom";
 
-function Card({ src, alt, key }) {
+function Card({
+  srcSmall,
+  srcLarge,
+  name,
+  alt,
+  key,
+  supertype,
+  subtypes,
+  hp,
+  types,
+  setName,
+  artist,
+  rarity,
+}) {
   const navigate = useNavigate();
   function getCardDetails(event) {
     event.preventDefault();
-
-    navigate("/cardDetails", { state: { src, alt, key } });
+    navigate("/cardDetails", {
+      state: {
+        srcSmall,
+        srcLarge,
+        name,
+        alt,
+        key,
+        supertype,
+        subtypes,
+        hp,
+        types,
+        setName,
+        artist,
+        rarity,
+      },
+    });
   }
   return (
     <li key={key}>
       <img
-        src={src}
+        src={srcSmall}
         alt={alt}
         key={key}
         className="card"
