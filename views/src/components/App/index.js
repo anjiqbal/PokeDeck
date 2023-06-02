@@ -19,7 +19,7 @@ function App() {
     console.log("i am here");
   }
   const hitBackend = () => {
-    axios.get('/test')
+    axios.get('/api/test')
     .then((response) => {
     console.log(response.data)
     })

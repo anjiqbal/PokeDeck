@@ -354,9 +354,7 @@ Apologies for the oversight. Let's incorporate the `models` folder into the answ
        const { createClient } = require('@supabase/supabase-js');
        const supabaseUrl = 'https://your-project-url.supabase.co';
        const supabaseKey = 'your-supabase-key';
-       const supabase = createClient(supabaseUrl, supabase
-
-Key);
+       const supabase = createClient(supabaseUrl, supabaseKey);
 
        const app = express();
        const port = 3001;
