@@ -1,17 +1,13 @@
-
-
 https://docs.pokemontcg.io/
 
 https://dev.pokemontcg.io/dashboard
 
 axios vs fetch?
 
+https://blog.webdevsimplified.com/2022-07/react-folder-structure/
 
 RESOURCES?
 https://fusionauth.io/
-
-
-
 
 ACCESSIBILITY
 
@@ -39,16 +35,10 @@ Building an accessible website from the beginning requires considering various a
 
 By implementing these steps and integrating accessibility into your development process, you can ensure that your website is accessible from the beginning and provides an inclusive experience for all users.
 
-
 CONNECTING FRONTEND TO BACKEND
 
 https://codedamn.com/news/reactjs/how-to-connect-react-with-node-js
 https://medium.com/hackernoon/full-stack-web-application-using-react-node-js-express-and-webpack-97dbd5b9d708
-
-
-
-
-
 
 To add a backend to your existing app and folder structure, you can follow these steps:
 
@@ -67,7 +57,7 @@ To add a backend to your existing app and folder structure, you can follow these
 6. Open the `server.js` file in a text editor and set up a basic server configuration using Express. Here's an example:
 
    ```javascript
-   const express = require('express');
+   const express = require("express");
    const app = express();
    const port = 3001; // Choose a port number for your backend
 
@@ -81,8 +71,8 @@ To add a backend to your existing app and folder structure, you can follow these
 7. Within the `server.js` file, you can define your routes and controllers. For now, you can start with a simple route to test if your backend is working correctly:
 
    ```javascript
-   app.get('/api/test', (req, res) => {
-     res.send('Backend is working!');
+   app.get("/api/test", (req, res) => {
+     res.send("Backend is working!");
    });
    ```
 
@@ -104,9 +94,9 @@ To add a backend to your existing app and folder structure, you can follow these
 
 That's it! You have added a backend to your existing JavaScript and React app. You can continue building out your backend by adding more routes, controllers, and database interactions as needed within the `server` folder, while keeping your frontend code in the `src` folder. Remember to adjust the routes and controllers based on your specific app requirements.
 
+---
 
--------------------------------------------------------------------------------------------------------
--------------------------------------------------------------------------------------------------
+---
 
 Installing the `cors` package is not mandatory, but it can be useful depending on your application's requirements. The `cors` package is commonly used in Express applications to handle Cross-Origin Resource Sharing (CORS) headers.
 
@@ -125,8 +115,8 @@ npm install cors
 Once installed, you can use `cors` as middleware in your Express application by adding the following lines to your `server.js` file:
 
 ```javascript
-const express = require('express');
-const cors = require('cors');
+const express = require("express");
+const cors = require("cors");
 
 const app = express();
 const port = 3001;
@@ -144,12 +134,7 @@ By calling `app.use(cors())`, you enable CORS for all routes in your Express app
 
 Using the `cors` package allows you to have more control over CORS settings, such as specifying which origins, methods, or headers are allowed. You can refer to the `cors` documentation for more advanced usage if needed.
 
-----------------------------------------------------------------------------------------------------
-
-
-
-
-
+---
 
 To set up the MVC architecture in your Node.js and Express backend, you can follow these steps:
 
@@ -168,16 +153,16 @@ To set up the MVC architecture in your Node.js and Express backend, you can foll
    Here's an example of how you can set up routes in your `server.js` file:
 
    ```javascript
-   const express = require('express');
+   const express = require("express");
    const app = express();
    const port = 3001;
 
    // Import your controllers
-   const usersController = require('./controllers/usersController');
+   const usersController = require("./controllers/usersController");
 
    // Set up routes
-   app.get('/api/users', usersController.getUsers);
-   app.post('/api/users', usersController.createUser);
+   app.get("/api/users", usersController.getUsers);
+   app.post("/api/users", usersController.createUser);
    // Define more routes as needed
 
    app.listen(port, () => {
@@ -193,7 +178,7 @@ To set up the MVC architecture in your Node.js and Express backend, you can foll
 
    ```javascript
    // Import the necessary models
-   const User = require('../models/User');
+   const User = require("../models/User");
 
    // Controller functions
    async function getUsers(req, res) {
@@ -201,7 +186,7 @@ To set up the MVC architecture in your Node.js and Express backend, you can foll
        const users = await User.find();
        res.json(users);
      } catch (error) {
-       res.status(500).json({ error: 'Internal server error' });
+       res.status(500).json({ error: "Internal server error" });
      }
    }
 
@@ -220,7 +205,7 @@ To set up the MVC architecture in your Node.js and Express backend, you can foll
 
 By organizing your code in this way, you separate concerns and follow the MVC pattern. The models handle data interactions, the views are handled by the frontend React components, and the controllers act as intermediaries, handling requests and coordinating with the models and views.
 
---------------------------------------------------------------------------------------------------------
+---
 
 That's correct. In your case, since you're building a backend API with Node.js and Express to serve data to a separate frontend application built with React, you wouldn't have a traditional "views" folder for rendering server-side templates. The React frontend will handle the rendering of the user interface on the client side.
 
@@ -239,8 +224,7 @@ So, in your folder structure, you would typically have the following directories
 
 Remember that the React frontend, which resides in the `src` directory of your top-level `Pokedeck` folder, will handle rendering the UI and consuming data from the backend API.
 
-
----------------------------------------------------------------------------------------------------
+---
 
 If you prefer to rename the `Pokedeck` directory to `views`, you can certainly do so. Renaming the directory is a matter of personal preference and does not impact the functionality of your application.
 
@@ -256,17 +240,19 @@ This new directory structure aligns with common naming conventions in web develo
 
 Just make sure to update any relevant file paths or configurations in your project accordingly after renaming the directory to `views`.
 
-----------------------------------------------------------------------------------------------------
+---
 
 More CORS notes:
 Running the frontend and backend on different ports or the same port has trade-offs, and the choice depends on your specific requirements and the architecture of your application. Here are some considerations:
 
 **Same Port:**
+
 - **Simplicity**: Running the frontend and backend on the same port simplifies the setup and configuration. It avoids potential CORS issues and eliminates the need for additional configuration like proxying requests.
 - **Easier Deployment**: Deploying both the frontend and backend as a single application can be easier and more streamlined. You can package and deploy the entire application as a single unit.
 - **Performance**: Serving the frontend and backend from the same server may offer slightly better performance as the requests don't need to traverse different ports or domains.
 
 **Different Ports:**
+
 - **Separation of Concerns**: Running the frontend and backend on different ports enforces a clear separation of concerns between the two layers. It allows for independent development, testing, and deployment of the frontend and backend applications.
 - **Scalability**: Running the frontend and backend on different ports can make it easier to scale each layer independently. For example, you can have multiple backend instances behind a load balancer while serving the frontend from a separate server or CDN.
 - **Flexibility**: Running on different ports allows you to use different technologies or frameworks for the frontend and backend. For instance, you could have a Node.js backend running on one port and a separate server serving a static frontend built with a different technology stack.
@@ -275,24 +261,25 @@ In general, if you have a simple application or you prioritize simplicity and ea
 
 Consider the specific needs of your application, development team, and infrastructure to determine which approach aligns best with your goals.
 
-
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---
 
 Apologies for the oversight. Let's incorporate the `models` folder into the answer, considering your application's requirements. Here's an updated step-by-step guide on handling authentication, storing wishlists, and owned cards data using Supabase, within the context of the MVC architecture and the file structure we discussed:
 
 1. **Frontend (React, JavaScript, and Supabase Client)**:
 
    - Set up Supabase client:
+
      - Install the Supabase client library in your frontend application by running the following command in your frontend directory (the `src` directory in your case):
        ```
        npm install @supabase/supabase-js
        ```
      - Create a file called `supabase.js` (or a suitable name) in the `src` directory and configure the Supabase client with your Supabase project credentials:
-       ```javascript
-       import { createClient } from '@supabase/supabase-js';
 
-       const supabaseUrl = 'https://your-project-url.supabase.co';
-       const supabaseKey = 'your-supabase-key';
+       ```javascript
+       import { createClient } from "@supabase/supabase-js";
+
+       const supabaseUrl = "https://your-project-url.supabase.co";
+       const supabaseKey = "your-supabase-key";
 
        const supabase = createClient(supabaseUrl, supabaseKey);
 
@@ -300,29 +287,42 @@ Apologies for the oversight. Let's incorporate the `models` folder into the answ
        ```
 
    - Implement authentication:
+
      - In your React components, import the `supabase` client and use its methods to handle user authentication. For example, you might have a `Login` component where users can sign in:
+
        ```javascript
-       import { useState } from 'react';
-       import supabase from './supabase';
+       import { useState } from "react";
+       import supabase from "./supabase";
 
        function Login() {
-         const [email, setEmail] = useState('');
-         const [password, setPassword] = useState('');
+         const [email, setEmail] = useState("");
+         const [password, setPassword] = useState("");
 
          async function handleLogin() {
-           const { user, error } = await supabase.auth.signIn({ email, password });
+           const { user, error } = await supabase.auth.signIn({
+             email,
+             password,
+           });
            if (error) {
-             console.error('Error signing in:', error.message);
+             console.error("Error signing in:", error.message);
            } else {
-             console.log('User logged in:', user);
+             console.log("User logged in:", user);
              // Redirect or perform other actions upon successful login
            }
          }
 
          return (
            <div>
-             <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-             <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+             <input
+               type="email"
+               value={email}
+               onChange={(e) => setEmail(e.target.value)}
+             />
+             <input
+               type="password"
+               value={password}
+               onChange={(e) => setPassword(e.target.value)}
+             />
              <button onClick={handleLogin}>Login</button>
            </div>
          );
@@ -338,6 +338,7 @@ Apologies for the oversight. Let's incorporate the `models` folder into the answ
 2. **Backend (Node.js, Express, and Supabase)**:
 
    - Set up the backend API:
+
      - Create a new folder called `server` at the top level of your project.
      - Inside the `server` folder, run the following command to initialize a new Node.js project and install necessary dependencies:
        ```
@@ -347,13 +348,15 @@ Apologies for the oversight. Let's incorporate the `models` folder into the answ
        ```
 
    - Create the backend server file:
+
      - Create a file called `server.js` within the `server` directory.
      - Import necessary modules and configure the Express server:
+
        ```javascript
-       const express = require('express');
-       const { createClient } = require('@supabase/supabase-js');
-       const supabaseUrl = 'https://your-project-url.supabase.co';
-       const supabaseKey = 'your-supabase-key';
+       const express = require("express");
+       const { createClient } = require("@supabase/supabase-js");
+       const supabaseUrl = "https://your-project-url.supabase.co";
+       const supabaseKey = "your-supabase-key";
        const supabase = createClient(supabaseUrl, supabaseKey);
 
        const app = express();
@@ -364,26 +367,28 @@ Apologies for the oversight. Let's incorporate the `models` folder into the answ
        ```
 
    - Define the models for wishlists and owned cards:
+
      - Create a `models` directory within the `server` folder.
      - Inside the `models` directory, create a file called `wishlist.js` for the wishlist model:
+
        ```javascript
-       const { supabase } = require('../supabase');
+       const { supabase } = require("../supabase");
 
        class Wishlist {
          static async create(userId, cardId) {
            try {
              const { data: insertedWishlist, error } = await supabase
-               .from('wishlist')
+               .from("wishlist")
                .insert({ user_id: userId, card_id: cardId });
 
              if (error) {
-               console.error('Error creating wishlist:', error.message);
+               console.error("Error creating wishlist:", error.message);
                return null;
              }
 
              return insertedWishlist;
            } catch (error) {
-             console.error('Error creating wishlist:', error);
+             console.error("Error creating wishlist:", error);
              return null;
            }
          }
@@ -395,24 +400,25 @@ Apologies for the oversight. Let's incorporate the `models` folder into the answ
        ```
 
      - Similarly, create a file called `ownedCard.js` for the owned card model:
+
        ```javascript
-       const { supabase } = require('../supabase');
+       const { supabase } = require("../supabase");
 
        class OwnedCard {
          static async create(userId, cardId) {
            try {
              const { data: insertedOwnedCard, error } = await supabase
-               .from('owned_cards')
+               .from("owned_cards")
                .insert({ user_id: userId, card_id: cardId });
 
              if (error) {
-               console.error('Error creating owned card:', error.message);
+               console.error("Error creating owned card:", error.message);
                return null;
              }
 
              return insertedOwnedCard;
            } catch (error) {
-             console.error('Error creating owned card:', error);
+             console.error("Error creating owned card:", error);
              return null;
            }
          }
@@ -424,10 +430,12 @@ Apologies for the oversight. Let's incorporate the `models` folder into the answ
        ```
 
    - Implement the routes and controllers for wishlists and owned cards:
+
      - Create a `controllers` directory within the `server` folder.
      - Inside the `controllers` directory, create a file called `wishlistController.js`:
+
        ```javascript
-       const Wishlist = require('../models/wishlist');
+       const Wishlist = require("../models/wishlist");
 
        exports.createWishlist = async (req, res) => {
          const { userId, cardId } = req.body;
@@ -438,15 +446,16 @@ Apologies for the oversight. Let's incorporate the `models` folder into the answ
            return res.status(201).json({ wishlist: insertedWishlist });
          }
 
-         return res.status(500).json({ error: 'Failed to create wishlist' });
+         return res.status(500).json({ error: "Failed to create wishlist" });
        };
 
        // Other wishlist controller methods (e.g., delete, get, etc.)
        ```
 
      - Similarly, create a file called `ownedCardController.js` for the owned card controller:
+
        ```javascript
-       const OwnedCard = require('../models/ownedCard');
+       const OwnedCard = require("../models/ownedCard");
 
        exports.createOwnedCard = async (req, res) => {
          const { userId, cardId } = req.body;
@@ -457,7 +466,7 @@ Apologies for the oversight. Let's incorporate the `models` folder into the answ
            return res.status(201).json({ ownedCard: insertedOwnedCard });
          }
 
-         return res.status(500).json({ error: 'Failed to create owned card' });
+         return res.status(500).json({ error: "Failed to create owned card" });
        };
 
        // Other owned card controller methods (e.g., delete, get, etc.)
@@ -467,9 +476,10 @@ Apologies for the oversight. Let's incorporate the `models` folder into the answ
      - In `server.js`, import the wishlist and owned card controllers and define the corresponding routes:
        ```javascript
        const wishlist
+       ```
 
 Controller = require('./controllers/wishlistController');
-       const ownedCardController = require('./controllers/ownedCardController');
+const ownedCardController = require('./controllers/ownedCardController');
 
        app.post('/api/wishlist', wishlistController.createWishlist);
        app.post('/api/owned-card', ownedCardController.createOwnedCard);

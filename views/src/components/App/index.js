@@ -3,7 +3,8 @@ import "./App.css";
 import Header from "../Header";
 import Input from "../Input";
 import FeatureCard from "../Feature-card";
-import axios from 'axios'
+import axios from "axios";
+
 
 function App() {
   const [pokemonName, setPokemonName] = useState("");
@@ -19,11 +20,10 @@ function App() {
     console.log("i am here");
   }
   const hitBackend = () => {
-    axios.get('/api/test')
-    .then((response) => {
-    console.log(response.data)
-    })
-    }
+    axios.get("/api/test").then((response) => {
+      console.log(response.data);
+    });
+  };
 
   return (
     <main className="App">
@@ -32,6 +32,7 @@ function App() {
       <section>
         <Input getPokemonName={getPokemonName} pokemonName={pokemonName} />
         <FeatureCard togglePopup={togglePopup} isOpen={isOpen} />
+     
       </section>
     </main>
   );
