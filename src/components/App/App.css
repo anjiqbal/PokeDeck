@@ -1,16 +1,34 @@
-.App {
+/* .App {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto, 1fr;
   min-height: 100vh;
-}
+} */
 
-main {
+/* main {
   background-image: url(../../../images/PokeBg.png);
   background-size: cover;
   background-position: center center;
   height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
+
+}  */
+
+
+main {
+  position: relative;
+  height: 100vh;
+}
+
+main::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url(../../../images/PokeBg.png);
+  background-size: cover;
+  background-position: center center;
+  opacity: 0.4; /* Adjust the opacity value (0.5) to your desired level */
+  z-index: -1;
 }

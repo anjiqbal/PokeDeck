@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-import Header from "../../components/Header/index";
+import { Header } from "../../components/Header";
 import './CardDetails.css'
 
 function CardDetails() {

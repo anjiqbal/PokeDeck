@@ -1,4 +1,36 @@
-#nav-bar{
+.navbar {
+  border-bottom: 1px solid black;
+  padding: 20px;
+  box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.2);
+
+}
+
+.nav-link {
+  margin-left: 20px;
+}
+
+.nav-link:hover {
+  background-color: black;
+  color: white;
+}
+
+.navbar {
+  background-color: white;
+}
+
+.collapse .nav-link {
+  padding-left: 20px;
+}
+
+@media (min-width: 992px) {
+  .navbar-collapse:not(.show) .signup-button {
+    border: 1px solid #000;
+  }
+ 
+}
+
+
+/* #nav-bar{
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -55,4 +87,4 @@ h3 {
   height: 40px;
   background-color: black;
   margin: 0 30px;
-}
+} */
