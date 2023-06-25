@@ -1,17 +1,3 @@
-/* .App {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto, 1fr;
-  min-height: 100vh;
-} */
-
-/* main {
-  background-image: url(../../../images/PokeBg.png);
-  background-size: cover;
-  background-position: center center;
-  height: 100vh;
-
-}  */
 
 
 main {
@@ -31,4 +17,9 @@ main::before {
   background-position: center center;
   opacity: 0.4; /* Adjust the opacity value (0.5) to your desired level */
   z-index: -1;
+}
+
+.main-content{
+  padding-top: 100px
+
 }

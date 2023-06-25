@@ -3,7 +3,7 @@ import "./App.css";
 import { Header } from "../Header";
 import Input from "../Input";
 import FeatureCard from "../Feature-card";
-import axios from "axios";
+
 
 function App() {
   const [pokemonName, setPokemonName] = useState("");
@@ -30,7 +30,7 @@ function App() {
         <Header />
       </div>
       {/* <button onClick={hitBackend}>Send request</button> */}
-      <section>
+      <section className="main-content">
         <div class="row">
           <div class="col">
             <Input getPokemonName={getPokemonName} pokemonName={pokemonName} />
