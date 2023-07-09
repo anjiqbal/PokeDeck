@@ -1,5 +1,5 @@
-import { useNavigate, Link } from "react-router-dom";
-import { FiMenu } from "react-icons/fi";
+import {  Link } from "react-router-dom";
+
 
 import "./Header.css"
 

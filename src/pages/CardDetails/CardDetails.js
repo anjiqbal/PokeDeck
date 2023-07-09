@@ -5,7 +5,6 @@ import './CardDetails.css'
 function CardDetails() {
   const location = useLocation();
   const {
-    srcSmall,
     srcLarge,
     name,
     alt,
